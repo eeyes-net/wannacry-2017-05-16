@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    cursor: default;
+}
+
+html, body {
+    font-size: 12px;
+}
+
+body {
+    background-color: #000;
+    overflow: hidden;
+}
+
+.desktop {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    font-family: "Courier New", serif;
+    font-weight: bold;
+    font-size: 0;
+    text-align: center;
+    z-index: -1;
+}
+
+.desktop > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.desktop-vertical-helper {
+    height: 100%;
+}
+
+.desktop-content {
+    text-align: left;
+}
+
+.desktop-content h1 {
+    margin: 2em 0 2.5em;
+    color: #dc2522;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.desktop-content p {
+    margin: 1em auto;
+    width: 58.3rem;
+    color: #b32a36;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.desktop-content strong {
+    color: #252b72;
+}
+
+.desktop-icon {
+    position: absolute;
+}
+
+.desktop-program {
+    width: 7rem;
+}
+
+.desktop-program-icon {
+    text-align: center;
+}
+
+.desktop-program-icon img {
+    width: 4rem;
+}
+
+.desktop-program-name {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.wanadecryptor {
+    position: absolute;
+    width: 60rem;
+    background-color: #841212;
+    border: 1px solid #3366cc;
+}
+
+.wanadecryptor-caption-bar {
+    width: 100%;
+    height: 2em;
+    background-color: #fff;
+    font-size: 1rem;
+    line-height: 2;
+    box-sizing: border-box;
+}
+
+.wanadecryptor-caption-icon {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 0;
+    width: 2em;
+    height: 2em;
+}
+
+.wanadecryptor-caption-icon img {
+    width: 1em;
+    height: 1em;
+}
+
+.wanadecryptor-caption-text {
+    position: absolute;
+    left: 2em;
+    top: 0;
+}
+
+.wanadecryptor-caption-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    cursor: default;
+}
+
+.wanadecryptor-body-left, .wanadecryptor-body-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wanadecryptor-body-left {
+    width: 30%;
+}
+
+.wanadecryptor-body-right {
+    display: inline-block;
+    vertical-align: top;
+    width: 69%;
+}
+
+.wanadecryptor-lock {
+    margin: .5rem;
+    height: 9rem;
+    text-align: center;
+}
+
+.wanadecryptor-lock img {
+    height: 9rem;
+}
+
+.wanadecryptor-clock {
+    margin: 1rem .5rem;
+    border: 1px solid #fcc;
+    text-align: center;
+}
+
+.wanadecryptor-clock h1 {
+    margin: 1em 0;
+    color: #cc0;
+    font-size: 1rem;
+}
+
+.wanadecryptor-clock h2 {
+    margin: 1em 0;
+    color: #ffffff;
+    font-size: .9rem;
+    font-weight: normal;
+}
+
+.wanadecryptor-clock h3 {
+    margin: 2em 0 .5em;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.wanadecryptor-clock p {
+    margin-bottom: .5em;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.wanadecryptor-links {
+    padding: 1.5rem 0 0 2rem;
+}
+
+.wanadecryptor-links a {
+    padding: .5em;
+    display: block;
+    color: #93bcca;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+.wanadecryptor-links strong {
+    color: #9ebcbb;
+    font-size: 1.2em;
+}
+
+.wanadecryptor-title {
+    position: relative;
+}
+
+.wanadecryptor-title h1 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-indent: 2em;
+    line-height: 1.5;
+}
+
+.wanadecryptor-title select {
+    position: absolute;
+    top: .5em;
+    right: 0;
+}
+
+.wanadecryptor-content {
+    margin: .5em 0;
+    height: 34rem;
+    background-color: #fff;
+    font-family: "Times New Roman", serif;
+    border: 1px solid #ffcccc;
+    overflow: auto;
+}
+
+.wanadecryptor-content, .wanadecryptor-content * {
+    user-select: initial;
+    cursor: text;
+}
+
+.wanadecryptor-content h1 {
+    font-size: 1.5rem;
+}
+
+.wanadecryptor-content p {
+    font-size: 1.2rem;
+}
+
+.wanadecryptor-bitcoin {
+    border: 1px solid #ffcccc;
+}
+
+.wanadecryptor-bitcoin img {
+    width: 10rem;
+}
+
+.wanadecryptor-bitcoin h1 {
+    color: #cccc00;
+    font-size: 1.2rem;
+}
+
+.wanadecryptor-bitcoin input {
+    padding: .2em;
+    width: 100%;
+    color: #ffffff;
+    background-color: transparent;
+    font-size: 1.1rem;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    user-select: initial;
+    cursor: text;
+}
+
+.wanadecryptor-bitcoin-copy {
+    width: 3rem;
+}
+
+.wanadecryptor-bitcoin button {
+    padding: 1em 0;
+    font-size: 1rem;
+}
+
+.wanadecryptor-buttons {
+    margin: .7rem 0;
+}
+
+.wanadecryptor-buttons button {
+    padding: .2em 0;
+    width: 44%;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.wanadecryptor-button-decrypt {
+    margin-left: 10%;
+}
