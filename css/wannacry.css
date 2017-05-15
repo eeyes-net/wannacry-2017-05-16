@@ -86,6 +86,7 @@ body {
     width: 60rem;
     background-color: #841212;
     border: 1px solid #3366cc;
+    z-index: 2;
 }
 
 .wanadecryptor-caption-bar {

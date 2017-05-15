@@ -1,10 +1,17 @@
 var wanadecryptor = document.getElementsByClassName('wanadecryptor')[0];
-wanadecryptor.style.display = 'none';
+wanadecryptor.style.left = parseInt(window.innerWidth / 2 - wanadecryptor.offsetWidth / 2) + 'px';
+wanadecryptor.style.top = parseInt(window.innerHeight / 2 - wanadecryptor.offsetHeight / 2) + 'px';
 
 var mouseDownX, mouseDownY;
 var divMove = function (e) {
-    wanadecryptor.style.left = (e.clientX - mouseDownX) + 'px';
-    wanadecryptor.style.top = (e.clientY - mouseDownY) + 'px';
+    if (e.type == 'touchmove') {
+        console.log(e.touches[0].clientX);
+        wanadecryptor.style.left = parseInt(e.touches[0].clientX - mouseDownX) + 'px';
+        wanadecryptor.style.top = parseInt(e.touches[0].clientY - mouseDownY) + 'px';
+    } else {
+        wanadecryptor.style.left = parseInt(e.clientX - mouseDownX) + 'px';
+        wanadecryptor.style.top = parseInt(e.clientY - mouseDownY) + 'px';
+    }
 };
 
 var wanadecryptorCaption = document.getElementsByClassName('wanadecryptor-caption-bar')[0];
@@ -16,18 +23,27 @@ wanadecryptorCaption.addEventListener('mousedown', function (e) {
 window.addEventListener('mouseup', function () {
     window.removeEventListener('mousemove', divMove, true);
 }, false);
+wanadecryptorCaption.addEventListener('touchstart', function (e) {
+    mouseDownX = e.touches[0].clientX - parseInt(wanadecryptor.style.left ? wanadecryptor.style.left : 0);
+    mouseDownY = e.touches[0].clientY - parseInt(wanadecryptor.style.top ? wanadecryptor.style.top : 0);
+    window.addEventListener('touchmove', divMove, true);
+}, false);
+window.addEventListener('touchend', function () {
+    window.removeEventListener('touchmove', divMove, true);
+}, false);
 
 document.getElementsByClassName('wanadecryptor-caption-close')[0].addEventListener('click', function () {
     wanadecryptor.style.display = 'none';
 });
+document.getElementsByClassName('wanadecryptor-caption-close')[0].addEventListener('touchstart', function () {
+    wanadecryptor.style.display = 'none';
+});
 
-var lastClickTimestamp = 0;
 document.getElementsByClassName('desktop-program')[0].addEventListener('click', function () {
-    var t = Date.now();
-    if (t - lastClickTimestamp < 300) {
-        wanadecryptor.style.display = '';
-    }
-    lastClickTimestamp = t;
+    wanadecryptor.style.display = '';
+});
+document.getElementsByClassName('desktop-program')[0].addEventListener('touchstart', function () {
+    wanadecryptor.style.display = '';
 });
 
 function getCookie(name) {
@@ -54,8 +70,8 @@ function secondsToText(seconds) {
     }
     var days = parseInt(seconds / 86400);
     seconds -= days * 86400;
-    var hours = parseInt(seconds / 1440);
-    seconds -= hours * 1440;
+    var hours = parseInt(seconds / 3600);
+    seconds -= hours * 3600;
     var minutes = parseInt(seconds / 60);
     seconds -= minutes * 60;
     seconds = parseInt(seconds);
