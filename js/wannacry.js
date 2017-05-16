@@ -1,11 +1,10 @@
 var wanadecryptor = document.getElementsByClassName('wanadecryptor')[0];
-wanadecryptor.style.left = parseInt(window.innerWidth / 2 - wanadecryptor.offsetWidth / 2) + 'px';
-wanadecryptor.style.top = parseInt(window.innerHeight / 2 - wanadecryptor.offsetHeight / 2) + 'px';
+wanadecryptor.style.left = '30px';
+wanadecryptor.style.top = '30px';
 
 var mouseDownX, mouseDownY;
 var divMove = function (e) {
     if (e.type == 'touchmove') {
-        console.log(e.touches[0].clientX);
         wanadecryptor.style.left = parseInt(e.touches[0].clientX - mouseDownX) + 'px';
         wanadecryptor.style.top = parseInt(e.touches[0].clientY - mouseDownY) + 'px';
     } else {
@@ -39,9 +38,15 @@ document.getElementsByClassName('wanadecryptor-caption-close')[0].addEventListen
     wanadecryptor.style.display = 'none';
 });
 
+var lastClickTimestamp = 0;
 document.getElementsByClassName('desktop-program')[0].addEventListener('click', function () {
-    wanadecryptor.style.display = '';
+    var t = Date.now();
+    if (t - lastClickTimestamp < 300) {
+        wanadecryptor.style.display = '';
+    }
+    lastClickTimestamp = t;
 });
+
 document.getElementsByClassName('desktop-program')[0].addEventListener('touchstart', function () {
     wanadecryptor.style.display = '';
 });
