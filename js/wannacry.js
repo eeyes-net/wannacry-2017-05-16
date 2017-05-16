@@ -2,6 +2,19 @@ var wanadecryptor = document.getElementsByClassName('wanadecryptor')[0];
 wanadecryptor.style.left = '30px';
 wanadecryptor.style.top = '30px';
 
+function launchFullScreen(element) {  
+   if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+}
+launchFullScreen(document.documentElement);
+
 var mouseDownX, mouseDownY;
 var divMove = function (e) {
     if (e.type == 'touchmove') {
@@ -49,6 +62,10 @@ document.getElementsByClassName('desktop-program')[0].addEventListener('click', 
 
 document.getElementsByClassName('desktop-program')[0].addEventListener('touchstart', function () {
     wanadecryptor.style.display = '';
+});
+
+document.getElementsByClassName('desktop')[0].addEventListener('click', function () {
+    launchFullScreen(document.documentElement);
 });
 
 function getCookie(name) {
